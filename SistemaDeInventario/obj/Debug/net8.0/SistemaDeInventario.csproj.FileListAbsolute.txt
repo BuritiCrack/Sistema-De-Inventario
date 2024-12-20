@@ -1,0 +1,14 @@
+D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventario\bin\Debug\net8.0\SistemaDeInventario.exe
+D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventario\bin\Debug\net8.0\SistemaDeInventario.deps.json
+D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventario\bin\Debug\net8.0\SistemaDeInventario.runtimeconfig.json
+D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventario\bin\Debug\net8.0\SistemaDeInventario.dll
+D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventario\bin\Debug\net8.0\SistemaDeInventario.pdb
+D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventario\obj\Debug\net8.0\SistemaDeInventario.GeneratedMSBuildEditorConfig.editorconfig
+D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventario\obj\Debug\net8.0\SistemaDeInventario.AssemblyInfoInputs.cache
+D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventario\obj\Debug\net8.0\SistemaDeInventario.AssemblyInfo.cs
+D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventario\obj\Debug\net8.0\SistemaDeInventario.csproj.CoreCompileInputs.cache
+D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventario\obj\Debug\net8.0\SistemaDeInventario.dll
+D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventario\obj\Debug\net8.0\refint\SistemaDeInventario.dll
+D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventario\obj\Debug\net8.0\SistemaDeInventario.pdb
+D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventario\obj\Debug\net8.0\SistemaDeInventario.genruntimeconfig.cache
+D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventario\obj\Debug\net8.0\ref\SistemaDeInventario.dll
