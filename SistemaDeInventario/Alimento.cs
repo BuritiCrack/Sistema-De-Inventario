@@ -11,7 +11,7 @@ namespace SistemaDeInventario
         {
             FechaDeVencimiento = DateTime.MinValue;
         }
-        public Alimento(string nombre, string categoria, decimal precio, int cantidad, DateTime fechaIngreso, DateTime fechaDeVencimiento) : base( nombre, TipoCategoria.Otro, precio, cantidad, fechaIngreso)
+        public Alimento(string nombre, TipoCategoria categoria, decimal precio, int cantidad, DateTime fechaIngreso, DateTime fechaDeVencimiento) : base( nombre, categoria, precio, cantidad, fechaIngreso)
         {
             FechaDeVencimiento = fechaDeVencimiento;
         }
@@ -29,7 +29,6 @@ namespace SistemaDeInventario
                 throw new ArgumentNullException("La fecha de vencimiento no puede ser nula o vacía.");
             }
 
-            
         }
         public override string ToString()
         {

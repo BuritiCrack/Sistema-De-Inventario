@@ -12,12 +12,10 @@ namespace SistemaDeInventario
         }
 
         public void AgregarProducto()
-        {   
+        {
             Producto producto = new();
 
-            System.Console.WriteLine("Agregando producto...");
-           
-            Console.Write("Ingrese la categoría del producto:");
+            LimpiarPantalla();
             ListadoCategoria();
             int opcion;
 
@@ -28,15 +26,24 @@ namespace SistemaDeInventario
             switch (opcion)
             {
                 case 1:
+                    Alimento alimento = new();
+                    alimento.VencimientoAlimento();
+                    producto = alimento;
                     producto.Categoria = Producto.TipoCategoria.Alimento;
                     break;
                 case 2:
                     producto.Categoria = Producto.TipoCategoria.Oficina;
                     break;
                 case 3:
+                    Moda moda = new();
+                    moda.TallaColor();
+                    producto = moda;
                     producto.Categoria = Producto.TipoCategoria.Moda;
                     break;
                 case 4:
+                    Electrodomestico electrodomestico = new();
+                    electrodomestico.VoltajeElec();
+                    producto = electrodomestico;
                     producto.Categoria = Producto.TipoCategoria.Electrodomestico;
                     break;
                 case 5:
@@ -46,50 +53,27 @@ namespace SistemaDeInventario
                     producto.Categoria = Producto.TipoCategoria.Hogar;
                     break;
                 case 7:
-                    producto.Categoria = Producto.TipoCategoria.Otro;    
+                    producto.Categoria = Producto.TipoCategoria.Otro;
                     break;
-                
+
             }
 
-            if(opcion == 1)
-            {
-                Alimento alimento = new();
-                alimento.VencimientoAlimento();
-                producto = alimento;
-                producto.Categoria = Producto.TipoCategoria.Alimento;
-     
-            }
-            else if (opcion == 3)
-            {
-                Moda moda = new();
-                moda.TallaColor();
-                producto = moda;
-                producto.Categoria = Producto.TipoCategoria.Moda;
-            }
-            else if(opcion == 4)
-            {
-                Electrodomestico electrodomestico = new();
-                electrodomestico.VoltajeElec();
-                producto = electrodomestico;
-                producto.Categoria = Producto.TipoCategoria.Electrodomestico;
-            }
-
-            Console.Write("Ingrese el nombre del producto:");
+            Console.Write("Ingrese el nombre del producto: ");
             producto.Nombre = Console.ReadLine()!;
-            Console.Write("Ingrese el precio del producto:");
-            producto.Precio = decimal.Parse(Console.ReadLine()!);
-            Console.Write("Ingrese la cantidad del producto:");
+            Console.Write("Ingrese la cantidad: ");
             producto.Cantidad = int.Parse(Console.ReadLine()!);
+            Console.Write("Ingrese el precio unitario: ");
+            producto.Precio = decimal.Parse(Console.ReadLine()!);
             producto.FechaIngreso = DateTime.UtcNow;
 
             _inventario.AgregarProducto(producto);
             Console.WriteLine("Producto agregado exitosamente.");
-            
+            PresionarTecla();
+
         }
 
         public void ListadoCategoria()
         {
-            Console.WriteLine("Categorías de productos:");
             StringBuilder sb = new();
             sb.AppendLine("1. Alimento");
             sb.AppendLine("2. Oficina");
@@ -98,12 +82,26 @@ namespace SistemaDeInventario
             sb.AppendLine("5. Deporte");
             sb.AppendLine("6. Hogar");
             sb.AppendLine("7. Otro");
-            Console.WriteLine(sb.ToString());
+            sb.Append("Seleccione la categoría del producto: ");
+            Console.Write(sb.ToString());
         }
-        public void verProductos()
-        {
+        public void VerProductos()
+        {    
+            LimpiarPantalla();
             _inventario.MostrarProductos();
+            PresionarTecla();
         }
-        
+
+        static public void LimpiarPantalla()
+        {
+            Console.Clear();
+        }
+
+        static public void PresionarTecla()
+        {
+            Console.WriteLine("Presione cualquier tecla para continuar...");
+            Console.ReadKey();
+        }
+
     }
 }

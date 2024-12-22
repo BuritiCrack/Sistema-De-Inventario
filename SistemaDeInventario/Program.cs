@@ -24,7 +24,7 @@ class Program
                     gestorDeInventario.ListadoCategoria();
                     break;
                 case 3:
-                    gestorDeInventario.verProductos();
+                    gestorDeInventario.VerProductos();
                     break;
                 case 4:
                     return;
@@ -45,14 +45,18 @@ class Program
         sb.AppendLine("2. Listado de categorías");
         sb.AppendLine("3. Ver productos");
         sb.AppendLine("4. Salir");
-        sb.AppendLine("Ingrese el número de la opción deseada:");
+        sb.Append("Ingrese el número de la opción deseada: ");
         Console.Write(sb.ToString());
     }
 
-    public static void LimpiarPantalla()
-    {
-        Console.WriteLine("Presione cualquier tecla para continuar...");
-        Console.ReadKey();
-        Console.Clear();
-    } 
+    static public void LimpiarPantalla()
+        {
+            Console.Clear();
+        }
+
+        static public void PresionarTecla()
+        {
+            Console.WriteLine("Presione cualquier tecla para continuar...");
+            Console.ReadKey();
+        }
 }

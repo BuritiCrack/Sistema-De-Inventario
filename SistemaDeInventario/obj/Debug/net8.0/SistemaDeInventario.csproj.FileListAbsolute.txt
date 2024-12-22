@@ -12,3 +12,4 @@ D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventa
 D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventario\obj\Debug\net8.0\SistemaDeInventario.pdb
 D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventario\obj\Debug\net8.0\SistemaDeInventario.genruntimeconfig.cache
 D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventario\obj\Debug\net8.0\ref\SistemaDeInventario.dll
+D:\jmbur\Documents\Visual Studio Proyects\Sistema De Inventario\SistemaDeInventario\obj\Debug\net8.0\SistemaDeInventario.sourcelink.json

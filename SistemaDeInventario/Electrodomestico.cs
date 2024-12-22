@@ -10,7 +10,7 @@ namespace SistemaDeInventario
         {
             Voltaje = 0;
         }
-        public Electrodomestico(string nombre, string categoria, decimal precio, int cantidad, DateTime fechaIngreso, int voltaje) : base(nombre, Enum.Parse<TipoCategoria>(categoria), precio, cantidad, fechaIngreso)
+        public Electrodomestico(string nombre, TipoCategoria categoria, decimal precio, int cantidad, DateTime fechaIngreso, int voltaje) : base(nombre, categoria, precio, cantidad, fechaIngreso)
         {
             Voltaje = voltaje;
         }
