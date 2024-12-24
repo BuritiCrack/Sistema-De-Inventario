@@ -55,6 +55,10 @@ namespace SistemaDeInventario
                 case 7:
                     producto.Categoria = Producto.TipoCategoria.Otro;
                     break;
+                default:
+                    Console.WriteLine("Opción no válida. Por favor, seleccione una categoría válida.");
+                    PresionarTecla();
+                    return;
 
             }
 
@@ -88,7 +92,7 @@ namespace SistemaDeInventario
         public void VerProductos()
         {    
             LimpiarPantalla();
-            _inventario.MostrarProductos();
+            _inventario.VerProductos();
             PresionarTecla();
         }
 
@@ -97,7 +101,36 @@ namespace SistemaDeInventario
             Console.Clear();
         }
 
-        static public void PresionarTecla()
+        public void EliminarProducto()
+        {
+            LimpiarPantalla();
+            if(NoHayProductos())
+            {
+                return;
+            }
+            VerProductos();
+            System.Console.Write("Ingrese la posicion del producto que desea eliminar: ");
+            int eliminado = int.Parse(Console.ReadLine()!);
+            _inventario.EliminarProducto(eliminado -1);
+            
+            System.Console.WriteLine("Producto eliminado exitosamente.");
+            PresionarTecla();
+            
+        }
+
+        public bool NoHayProductos()
+        {
+            if(_inventario.NoHayTareas())
+            {
+                PresionarTecla();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        } 
+        public void PresionarTecla()
         {
             Console.WriteLine("Presione cualquier tecla para continuar...");
             Console.ReadKey();

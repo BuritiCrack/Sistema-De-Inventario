@@ -21,7 +21,7 @@ class Program
                     gestorDeInventario.AgregarProducto();
                     break;
                 case 2:
-                    gestorDeInventario.ListadoCategoria();
+                    gestorDeInventario.EliminarProducto();
                     break;
                 case 3:
                     gestorDeInventario.VerProductos();
@@ -42,7 +42,7 @@ class Program
         StringBuilder sb = new();
         sb.AppendLine("Menú de opciones:");
         sb.AppendLine("1. Agregar producto");
-        sb.AppendLine("2. Listado de categorías");
+        sb.AppendLine("2. Eliminar producto");
         sb.AppendLine("3. Ver productos");
         sb.AppendLine("4. Salir");
         sb.Append("Ingrese el número de la opción deseada: ");

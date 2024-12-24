@@ -32,7 +32,8 @@ namespace SistemaDeInventario
         }
         public override string ToString()
         {
-            return base.ToString() + $"\nFecha de Vencimiento: {FechaDeVencimiento.ToShortDateString()}";
+            return string.Format("ID: {0}\nNombre: {1}\nCategoría: {2}\nFecha de vencimiento: {3}\nPrecio: {4:C}\nCantidad: {5}\nFecha de ingreso: {6}",
+                                  ID, Categoria, Nombre, FechaDeVencimiento.ToShortDateString(), Precio, Cantidad, FechaIngreso.ToShortDateString());
         }
     }
 }

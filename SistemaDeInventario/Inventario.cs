@@ -1,3 +1,5 @@
+using System.Net;
+using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
@@ -17,20 +19,35 @@ namespace SistemaDeInventario
             _Productos.Add(producto);
         }
 
-        public void EliminarProducto(Guid id)
+        public void EliminarProducto(int eliminado)
         {
-            Producto? producto = _Productos.Find(p => p.ID == id);
-            if (producto != null)
-            {
-                _Productos.Remove(producto);
-            }
-            else
-            {
-                Console.WriteLine("Producto no encontrado.");
-            }
+            _Productos.RemoveAt(eliminado);
 
         }
 
+        public void VerProductos()
+        {
+            if (NoHayTareas())
+            {
+                return;
+            }
+
+            List<Producto> productos = new List<Producto>(_Productos);
+            System.Console.WriteLine(CadenDeProductos(productos));
+        }
+
+        public bool NoHayTareas()
+        {
+            if(_Productos.Count == 0)
+            {
+                System.Console.WriteLine("No hay tareas");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public void ActualizarProducto(Guid id, Producto producto)
         {
             Producto? productoActualizado = _Productos.Find(p => p.ID == id);
@@ -48,55 +65,20 @@ namespace SistemaDeInventario
             }
         }
 
-        private bool NoHayProductos()
+        public string CadenDeProductos(List<Producto> productos)
         {
-            if (_Productos.Count == 0)
-            {
-                Console.WriteLine("No hay productos en el inventario.");
-                return true;
-            }
-            return false;
-        }
-        public void MostrarProductos()
-        {
-            if (NoHayProductos())
-            {
-                return;
-            }
-
-            List<Producto> productos = new List<Producto>(_Productos);
-            Console.WriteLine(CadenaDeProductos(productos));
-        }
-       
-        public Producto? BuscarPorNombre(string nombre)
-        {
-            if (NoHayProductos())
-            {
-                return null;
-            }
-
-            Producto? p = _Productos.Find(p => p.Nombre == nombre);
-            if (p == null)
-            {
-                Console.WriteLine("Producto no encontrado.");
-            }
-            return p;
-        }
-
-        private string CadenaDeProductos(List<Producto> productos)
-        {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             int i = 0;
             foreach (Producto producto in productos)
             {
-                if (_Productos == null) {continue;}
+                if (_Productos[0] == null) {continue;}
                 i++;
-                string dato = string.Format("{0}. {1}\n", i, producto); 
+                String dato = String.Format("{0}. {1}\n", i, producto);
                 sb.AppendLine(dato);
+                
             }
-
             return sb.ToString();
-        }
+        }    
 
     }
 }

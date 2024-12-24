@@ -17,12 +17,13 @@ namespace SistemaDeInventario
 
         public void VoltajeElec()
         {
-            Console.WriteLine("Ingrese el voltaje del electrodoméstico:");
+            Console.Write("Ingrese el voltaje del electrodoméstico: ");
             Voltaje = int.Parse(Console.ReadLine()!);
         }
         public override string ToString()
         {
-            return base.ToString() + $" Voltaje: {Voltaje}V";
+            return string.Format("ID: {0}\nNombre: {1}\nCategoría: {2}\nVoltaje: {3}\nPrecio: {4:C}\nCantidad: {5}\nFecha de ingreso: {6}",
+                                  ID, Categoria, Nombre, Voltaje, Precio, Cantidad, FechaIngreso.ToShortDateString());
         }
     }
 }
