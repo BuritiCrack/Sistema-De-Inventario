@@ -7,40 +7,39 @@ namespace SistemaDeInventario
 {
     public class Inventario
     {
-        private List<Producto> _Productos;
+        private List<Producto> _productos;
 
         public Inventario()
         {
-            _Productos = new List<Producto>();
+            _productos = new List<Producto>();
         }
 
         public void AgregarProducto(Producto producto)
         {
-            _Productos.Add(producto);
+            _productos.Add(producto);
         }
 
         public void EliminarProducto(int eliminado)
         {
-            _Productos.RemoveAt(eliminado);
-
+            _productos.RemoveAt(eliminado);
         }
 
         public void VerProductos()
         {
-            if (NoHayTareas())
+            if (NoHayProductos())
             {
                 return;
             }
 
-            List<Producto> productos = new List<Producto>(_Productos);
+            List<Producto> productos = new List<Producto>(_productos);
             System.Console.WriteLine(CadenDeProductos(productos));
         }
 
-        public bool NoHayTareas()
+        public bool NoHayProductos()
         {
-            if(_Productos.Count == 0)
+            if (_productos.Count == 0)
             {
-                System.Console.WriteLine("No hay tareas");
+                System.Console.WriteLine("No hay productos en el inventario.");
                 return true;
             }
             else
@@ -48,22 +47,42 @@ namespace SistemaDeInventario
                 return false;
             }
         }
-        public void ActualizarProducto(Guid id, Producto producto)
+        public void EditarProducto(int posicionProducto, string nombre, Producto.TipoCategoria categoria, int cantidad, decimal precio)
         {
-            Producto? productoActualizado = _Productos.Find(p => p.ID == id);
-            if (productoActualizado != null)
+            _productos[posicionProducto].Nombre = nombre;
+            _productos[posicionProducto].Categoria = categoria;
+            _productos[posicionProducto].Cantidad = cantidad;
+            _productos[posicionProducto].Precio = precio;
+
+            if (_productos[posicionProducto] is Alimento)
             {
-                productoActualizado.Nombre = producto.Nombre;
-                productoActualizado.Categoria = producto.Categoria;
-                productoActualizado.Precio = producto.Precio;
-                productoActualizado.Cantidad = producto.Cantidad;
-                productoActualizado.FechaIngreso = producto.FechaIngreso;
+                Alimento alimento = (Alimento)_productos[posicionProducto];
+                alimento.VencimientoAlimento();
             }
-            else
+            else if (_productos[posicionProducto] is Electrodomestico)
             {
-                Console.WriteLine("Producto no encontrado.");
+                Electrodomestico electrodomestico = (Electrodomestico)_productos[posicionProducto];
+                electrodomestico.VoltajeElec();
+            }
+            else if (_productos[posicionProducto] is Moda)
+            {
+                Moda moda = (Moda)_productos[posicionProducto];
+                moda.TallaColor();
             }
         }
+
+        public Producto? BuscarProductoPorNombre(string nombre)
+        {
+            foreach (Producto producto in _productos)
+            {
+                if (producto != null && producto.Nombre == nombre)
+                {
+                    return producto;
+                }
+            }
+            return null;
+        }
+
 
         public string CadenDeProductos(List<Producto> productos)
         {
@@ -71,14 +90,14 @@ namespace SistemaDeInventario
             int i = 0;
             foreach (Producto producto in productos)
             {
-                if (_Productos[0] == null) {continue;}
+                if (_productos[0] == null) { continue; }
                 i++;
                 String dato = String.Format("{0}. {1}\n", i, producto);
                 sb.AppendLine(dato);
-                
+
             }
             return sb.ToString();
-        }    
+        }
 
     }
 }

@@ -27,7 +27,14 @@ class Program
                     gestorDeInventario.VerProductos();
                     break;
                 case 4:
-                    return;
+                    gestorDeInventario.ActualizarProducto();
+                    break;
+                case 5:
+                    gestorDeInventario.BuscarProductoPorNombre();
+                    break;
+                case 6:
+                    Environment.Exit(0);
+                    break;
                 default:
                     Console.WriteLine("Opción no válida.");
                     break;
@@ -44,7 +51,9 @@ class Program
         sb.AppendLine("1. Agregar producto");
         sb.AppendLine("2. Eliminar producto");
         sb.AppendLine("3. Ver productos");
-        sb.AppendLine("4. Salir");
+        sb.AppendLine("4. Actualizar productos");
+        sb.AppendLine("5. Buscar por nombre");
+        sb.AppendLine("6. Salir");
         sb.Append("Ingrese el número de la opción deseada: ");
         Console.Write(sb.ToString());
     }

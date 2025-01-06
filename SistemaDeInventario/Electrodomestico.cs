@@ -10,7 +10,8 @@ namespace SistemaDeInventario
         {
             Voltaje = 0;
         }
-        public Electrodomestico(string nombre, TipoCategoria categoria, decimal precio, int cantidad, DateTime fechaIngreso, int voltaje) : base(nombre, categoria, precio, cantidad, fechaIngreso)
+        public Electrodomestico(string nombre, TipoCategoria categoria, decimal precio, int cantidad, DateTime fechaIngreso, int voltaje)
+                                 : base(nombre, categoria, precio, cantidad, fechaIngreso)
         {
             Voltaje = voltaje;
         }
@@ -22,7 +23,7 @@ namespace SistemaDeInventario
         }
         public override string ToString()
         {
-            return string.Format("ID: {0}\nNombre: {1}\nCategoría: {2}\nVoltaje: {3}\nPrecio: {4:C}\nCantidad: {5}\nFecha de ingreso: {6}",
+            return string.Format("ID: {0}\nCategoría: {1}\nNombre: {2}\nVoltaje: {3}\nPrecio: {4:C}\nCantidad: {5}\nFecha de ingreso: {6}",
                                   ID, Categoria, Nombre, Voltaje, Precio, Cantidad, FechaIngreso.ToShortDateString());
         }
     }
