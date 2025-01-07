@@ -11,17 +11,19 @@ namespace SistemaDeInventario
 
         public Inventario()
         {
-            _productos = new List<Producto>();
+            _productos = Persistencia.CargarDatos();
         }
 
         public void AgregarProducto(Producto producto)
         {
             _productos.Add(producto);
+            GuardarDatos();
         }
 
         public void EliminarProducto(int eliminado)
         {
             _productos.RemoveAt(eliminado);
+            GuardarDatos();
         }
 
         public void VerProductos()
@@ -52,8 +54,8 @@ namespace SistemaDeInventario
         public void OrdenarPorPrecio()
         {
             List<Producto> productos = new List<Producto>(_productos);
-            productos.Sort((x, y) => x.Precio.CompareTo(y.Precio));
-            System.Console.WriteLine(CadenDeProductos(productos));
+            productos.Sort((x, y) => x.Precio.CompareTo(y.Precio)); 
+            System.Console.WriteLine(CadenDeProductos(productos)); 
         }
 
         public void OrdenarPorPrecioDesc()
@@ -97,6 +99,7 @@ namespace SistemaDeInventario
                 Moda moda = (Moda)_productos[posicionProducto];
                 moda.TallaColor();
             }
+            GuardarDatos();
         }
 
         public Producto? BuscarProductoPorNombre(string nombre)
@@ -127,5 +130,9 @@ namespace SistemaDeInventario
             return sb.ToString();
         }
 
+        private void GuardarDatos()
+        {
+            Persistencia.GuardarDatos(_productos);
+        }
     }
 }

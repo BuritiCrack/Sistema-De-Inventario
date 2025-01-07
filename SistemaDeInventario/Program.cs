@@ -5,11 +5,12 @@ namespace SistemaDeInventario;
 
 class Program
 {
-    static GestorDeInventario gestorDeInventario = new(new Inventario());
-    static string archivo = "productos.json";
+    static GestorDeInventario gestorDeInventario = new(new Inventario()); 
+    //static string archivo = "productos.json";
 
     static void Main(string[] args)
     {
+        //Persistencia.CargarDatos();
         while (true)
         {
             LimpiarPantalla();
@@ -44,7 +45,7 @@ class Program
                     break;
             }
         }
-
+        
         
     }
 

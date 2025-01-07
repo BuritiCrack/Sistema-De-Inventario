@@ -111,7 +111,8 @@ namespace SistemaDeInventario
 
         public override string ToString()
         {
-            return string.Format("ID: {0}\nCategoría: {1}\nNombre: {2}\nPrecio: {3:C}\nCantidad: {4}\nFecha de ingreso: {5}", ID, Categoria, Nombre, Precio, Cantidad, FechaIngreso.ToShortDateString());
+            return string.Format("ID: {0}\nCategoría: {1}\nNombre: {2}\nPrecio: {3:C}\nCantidad: {4}\nFecha de ingreso: {5}", 
+                                  ID, Categoria, Nombre, Precio, Cantidad, FechaIngreso.ToShortDateString());
         }
     }
 }
