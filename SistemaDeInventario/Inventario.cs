@@ -35,6 +35,34 @@ namespace SistemaDeInventario
             System.Console.WriteLine(CadenDeProductos(productos));
         }
 
+        public void OrdenarPorNombre()
+        {
+            List<Producto> productos = new List<Producto>(_productos);
+            productos.Sort((x, y) => x.Nombre.CompareTo(y.Nombre));
+            System.Console.WriteLine(CadenDeProductos(productos));
+        }
+
+        public void OrdenarPorNombreDesc()
+        {
+            List<Producto> productos = new List<Producto>(_productos);
+            productos.Sort((x, y) => y.Nombre.CompareTo(x.Nombre));
+            System.Console.WriteLine(CadenDeProductos(productos));
+        }
+
+        public void OrdenarPorPrecio()
+        {
+            List<Producto> productos = new List<Producto>(_productos);
+            productos.Sort((x, y) => x.Precio.CompareTo(y.Precio));
+            System.Console.WriteLine(CadenDeProductos(productos));
+        }
+
+        public void OrdenarPorPrecioDesc()
+        {
+            List<Producto> productos = new List<Producto>(_productos);
+            productos.Sort((x, y) => y.Precio.CompareTo(x.Precio));
+            System.Console.WriteLine(CadenDeProductos(productos));
+        }
+
         public bool NoHayProductos()
         {
             if (_productos.Count == 0)

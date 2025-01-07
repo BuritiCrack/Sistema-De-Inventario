@@ -5,10 +5,11 @@ namespace SistemaDeInventario;
 
 class Program
 {
+    static GestorDeInventario gestorDeInventario = new(new Inventario());
+    static string archivo = "productos.json";
+
     static void Main(string[] args)
     {
-        GestorDeInventario gestorDeInventario = new(new Inventario());
-
         while (true)
         {
             LimpiarPantalla();
@@ -33,6 +34,9 @@ class Program
                     gestorDeInventario.BuscarProductoPorNombre();
                     break;
                 case 6:
+                    gestorDeInventario.VerOrdenados();
+                    break;
+                case 7:
                     Environment.Exit(0);
                     break;
                 default:
@@ -53,7 +57,8 @@ class Program
         sb.AppendLine("3. Ver productos");
         sb.AppendLine("4. Actualizar productos");
         sb.AppendLine("5. Buscar por nombre");
-        sb.AppendLine("6. Salir");
+        sb.AppendLine("6. Ver productos Ordenados");
+        sb.AppendLine("7. Salir");
         sb.Append("Ingrese el número de la opción deseada: ");
         Console.Write(sb.ToString());
     }

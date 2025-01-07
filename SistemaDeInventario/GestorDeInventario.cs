@@ -237,6 +237,95 @@ namespace SistemaDeInventario
             }
             PresionarTecla();
         }
+        
+        public void VerOrdenados()
+        {
+            LimpiarPantalla();
+            if (NoHayProductos())
+            {
+                return;
+            }
+            VerProductos();
+            ListaVerOrdenados();
+            LimpiarPantalla();
+            int opcion = int.Parse(Console.ReadLine()!);
+            switch (opcion)
+            {
+                case 1:
+                    OrdenarPorNombre();
+                    break;
+                case 2:
+                    OrdenarPorNombreDesc();
+                    break;
+                case 3:
+                    OrdenarPorPrecio();
+                    break;
+                case 4:
+                    OrdenarPorPrecioDesc();
+                    break;
+                default:
+                    Console.WriteLine("Opción no válida. Por favor, seleccione una categoría válida.");
+                    PresionarTecla();
+                    return;
+            }
+            PresionarTecla();
+        }
+
+        public void ListaVerOrdenados()
+        {
+            StringBuilder sb = new();
+            sb.AppendLine("Menú de opciones:");
+            sb.AppendLine("1. Ordenar por nombre de forma ascendente");
+            sb.AppendLine("2. Ordenar por nombre de forma descendente");
+            sb.AppendLine("3. Ordenar por precio de forma ascendente");
+            sb.AppendLine("4. Ordenar por precio de forma descendente");
+            sb.Append("Seleccione el criterio de ordenamiento: ");
+            Console.Write(sb.ToString());
+        }
+        public void OrdenarPorNombre()
+        {
+            LimpiarPantalla();
+            if (NoHayProductos())
+            {
+                return;
+            }
+            Console.WriteLine("Productos ordenados por nombre.");
+            _inventario.OrdenarPorNombre();
+        }
+
+        public void OrdenarPorNombreDesc()
+        {
+            LimpiarPantalla();
+            if (NoHayProductos())
+            {
+                return;
+            }
+            Console.WriteLine("Productos ordenados por nombre de forma descendente.");
+            _inventario.OrdenarPorNombreDesc();
+        }
+
+        public void OrdenarPorPrecio()
+        {
+            LimpiarPantalla();
+            if (NoHayProductos())
+            {
+                return;
+            }
+            Console.WriteLine("Productos ordenados por precio.");
+            _inventario.OrdenarPorPrecio();
+        }
+
+        public void OrdenarPorPrecioDesc()
+        {
+            LimpiarPantalla();
+            if (NoHayProductos())
+            {
+                return;
+            }
+            Console.WriteLine("Productos ordenados por precio de forma descendente.");
+            _inventario.OrdenarPorPrecioDesc();
+        }
+
 
         public bool NoHayProductos()
         {
