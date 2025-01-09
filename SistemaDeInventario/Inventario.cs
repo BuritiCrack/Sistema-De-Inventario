@@ -111,7 +111,11 @@ namespace SistemaDeInventario
         {
             return _productos.Where(p => p.Categoria == categoria).ToList();
         }
-
+        
+        public List<Producto> BuscarPorRangoDePrecio(decimal min, decimal max)
+        {
+            return _productos.Where(p => p.Precio >= min && p.Precio <= max).ToList();
+        }
         public string CadenDeProductos(List<Producto> productos)
         {
             StringBuilder sb = new();

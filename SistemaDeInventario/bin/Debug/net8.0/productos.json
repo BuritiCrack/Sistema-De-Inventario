@@ -30,5 +30,13 @@
     "Precio": 46000,
     "Cantidad": 4,
     "FechaIngreso": "2025-01-09T18:11:05.2636425Z"
+  },
+  {
+    "ID": "44a3d38d-62fd-4d9d-b75c-d7ec25005896",
+    "Nombre": "Televisor",
+    "Categoria": 3,
+    "Precio": 1200000,
+    "Cantidad": 4,
+    "FechaIngreso": "2025-01-09T22:27:42.1295733Z"
   }
 ]

@@ -201,7 +201,7 @@ namespace SistemaDeInventario
                     BuscarProductoPorCategoria();
                     break;
                 case 3:
-                    //  BuscarProductoPorPrecio();
+                    BuscarProductoPorPrecio();
                     break;
                 default:
                     Console.WriteLine("Opción no válida. Por favor, seleccione una categoría válida.");
@@ -265,7 +265,42 @@ namespace SistemaDeInventario
             }
         }
 
+        public void BuscarProductoPorPrecio()
+        {
+            LimpiarPantalla();
+            Console.Write("Ingrese el rango de precios min y max separados por un espacio: ");
+            string[] precio = Console.ReadLine()!.Split(' ');
 
+            if (precio.Length == 2 &&
+                    decimal.TryParse(precio[0], out decimal min) &&
+                    decimal.TryParse(precio[1], out decimal max))
+            {
+                if (min < max)
+                {
+                    List<Producto> productos = _inventario.BuscarPorRangoDePrecio(min, max);
+
+                    if (productos.Count > 0)
+                    {   
+                        LimpiarPantalla();
+                        Console.WriteLine("Productos encontrados:\n");
+                        Console.WriteLine(_inventario.CadenDeProductos(productos));
+                    }
+                    else
+                    {
+                        Console.WriteLine("No se encontraron productos en este rango de precios.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("El precio mínimo debe ser menor al precio máximo.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Entrada no válida. Por favor, ingrese dos números separados por un espacio.");
+            }
+
+        }
         public void VerOrdenados()
         {
             LimpiarPantalla();
