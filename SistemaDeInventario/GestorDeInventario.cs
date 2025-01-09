@@ -243,23 +243,16 @@ namespace SistemaDeInventario
             Console.WriteLine("Ingrese la categoría del producto que desea buscar:");
             ListadoCategoria();
 
-            // Validar entrada del usuario
             if (int.TryParse(Console.ReadLine(), out int input) && Enum.IsDefined(typeof(Producto.TipoCategoria), input))
             {
-                // Obtener el valor del enum directamente
                 input -= 1;
                 var Categoria = (Producto.TipoCategoria)input;
-
-                // Buscar productos por categoría
                 List<Producto> productos = _inventario.BuscarProductoPorCategoria(Categoria);
 
                 if (productos.Count > 0)
                 {
                     Console.WriteLine("Productos encontrados:");
-                    foreach (Producto producto in productos)
-                    {
-                        Console.WriteLine(producto);
-                    }
+                    Console.WriteLine(_inventario.CadenDeProductos(productos));
                 }
                 else
                 {
