@@ -32,7 +32,7 @@ class Program
                     gestorDeInventario.ActualizarProducto();
                     break;
                 case 5:
-                    gestorDeInventario.BuscarProductoPorNombre();
+                    gestorDeInventario.Buscar();
                     break;
                 case 6:
                     gestorDeInventario.VerOrdenados();
@@ -57,7 +57,7 @@ class Program
         sb.AppendLine("2. Eliminar producto");
         sb.AppendLine("3. Ver productos");
         sb.AppendLine("4. Actualizar productos");
-        sb.AppendLine("5. Buscar por nombre");
+        sb.AppendLine("5. Buscar productos");
         sb.AppendLine("6. Ver productos Ordenados");
         sb.AppendLine("7. Salir");
         sb.Append("Ingrese el número de la opción deseada: ");

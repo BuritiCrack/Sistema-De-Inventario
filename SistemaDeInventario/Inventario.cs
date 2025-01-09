@@ -102,18 +102,15 @@ namespace SistemaDeInventario
             GuardarDatos();
         }
 
-        public Producto? BuscarProductoPorNombre(string nombre)
-        {
-            foreach (Producto producto in _productos)
-            {
-                if (producto != null && producto.Nombre == nombre)
-                {
-                    return producto;
-                }
-            }
-            return null;
+        public Producto BuscarProductoPorNombre(string nombre)
+        {        
+            return _productos.Where(p => p.Nombre == nombre).FirstOrDefault();
         }
 
+        public List<Producto> BuscarProductoPorCategoria(Producto.TipoCategoria categoria)
+        {
+            return _productos.Where(p => p.Categoria == categoria).ToList();
+        }
 
         public string CadenDeProductos(List<Producto> productos)
         {

@@ -6,5 +6,29 @@
     "Precio": 7000,
     "Cantidad": 45,
     "FechaIngreso": "2025-01-07T23:44:52.2549176Z"
+  },
+  {
+    "ID": "1a9f27f8-1662-410f-b061-bb5c5778c35f",
+    "Nombre": "Jean",
+    "Categoria": 2,
+    "Precio": 76000,
+    "Cantidad": 24,
+    "FechaIngreso": "2025-01-09T18:08:54.4012338Z"
+  },
+  {
+    "ID": "b83cfe91-b4eb-41cf-bb89-bf77170312e8",
+    "Nombre": "Balon",
+    "Categoria": 4,
+    "Precio": 9000,
+    "Cantidad": 23,
+    "FechaIngreso": "2025-01-09T18:09:47.8299579Z"
+  },
+  {
+    "ID": "137026b6-ef47-4a49-93cb-8add485312d7",
+    "Nombre": "Raqueta",
+    "Categoria": 4,
+    "Precio": 46000,
+    "Cantidad": 4,
+    "FechaIngreso": "2025-01-09T18:11:05.2636425Z"
   }
 ]

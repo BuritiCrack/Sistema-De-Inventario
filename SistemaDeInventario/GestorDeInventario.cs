@@ -172,7 +172,7 @@ namespace SistemaDeInventario
 
         }
 
-        public void ActualizarItems(out string nombre,out int cantidad,out decimal precio)
+        public void ActualizarItems(out string nombre, out int cantidad, out decimal precio)
         {
             LimpiarPantalla();
             Console.Write("Ingrese el nuevo nombre del producto: ");
@@ -198,10 +198,10 @@ namespace SistemaDeInventario
                     BuscarProductoPorNombre();
                     break;
                 case 2:
-                   // BuscarProductoPorCategoria();
+                    BuscarProductoPorCategoria();
                     break;
                 case 3:
-                  //  BuscarProductoPorPrecio();
+                    //  BuscarProductoPorPrecio();
                     break;
                 default:
                     Console.WriteLine("Opción no válida. Por favor, seleccione una categoría válida.");
@@ -226,18 +226,53 @@ namespace SistemaDeInventario
             LimpiarPantalla();
             Console.Write("Ingrese el nombre del producto que desea buscar: ");
             string nombre = Console.ReadLine()!;
-            Producto? producto = _inventario.BuscarProductoPorNombre(nombre);
-            if (producto != null)
+            Producto productos = _inventario.BuscarProductoPorNombre(nombre);
+            if (productos != null)
             {
-                Console.WriteLine("Producto: \n" + producto);
+                Console.WriteLine("Producto: \n" + productos);
             }
             else
             {
                 Console.WriteLine("Producto no encontrado.");
             }
-            PresionarTecla();
         }
-        
+
+        public void BuscarProductoPorCategoria()
+        {
+            LimpiarPantalla();
+            Console.WriteLine("Ingrese la categoría del producto que desea buscar:");
+            ListadoCategoria();
+
+            // Validar entrada del usuario
+            if (int.TryParse(Console.ReadLine(), out int input) && Enum.IsDefined(typeof(Producto.TipoCategoria), input))
+            {
+                // Obtener el valor del enum directamente
+                input -= 1;
+                var Categoria = (Producto.TipoCategoria)input;
+
+                // Buscar productos por categoría
+                List<Producto> productos = _inventario.BuscarProductoPorCategoria(Categoria);
+
+                if (productos.Count > 0)
+                {
+                    Console.WriteLine("Productos encontrados:");
+                    foreach (Producto producto in productos)
+                    {
+                        Console.WriteLine(producto);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No se encontraron productos en esta categoría.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Categoría no válida. Intente nuevamente.");
+            }
+        }
+
+
         public void VerOrdenados()
         {
             LimpiarPantalla();
@@ -342,7 +377,7 @@ namespace SistemaDeInventario
 
         static public void LimpiarPantalla()
         {
-                 Console.Clear();
+            Console.Clear();
         }
         public void PresionarTecla()
         {
